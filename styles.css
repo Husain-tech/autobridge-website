@@ -1,0 +1,943 @@
+/* =========================================================
+   AutoBridge – styles.css
+   Farver hentet fra logoet. Skrifttype: Albert Sans (lokalt hostet).
+   ========================================================= */
+
+@font-face {
+  font-family: "Albert Sans";
+  src: url("fonts/albert-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Albert Sans";
+  src: url("fonts/albert-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Albert Sans";
+  src: url("fonts/albert-sans-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Albert Sans";
+  src: url("fonts/albert-sans-latin-800-normal.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --navy: #112b45;        /* "Auto" + brobuen i logoet */
+  --navy-hover: #1d4166;
+  --steel: #71777f;       /* "Bridge" i logoet */
+  --text-soft: #545b63;   /* grå tekst med god kontrast */
+  --ink: #17212b;
+  --mist: #f2f4f6;
+  --line: #dce1e6;
+  --on-navy: #c9d3dd;
+  --focus: #3b82c4;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --container: 1160px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section-space: clamp(3.5rem, 8vw, 6.5rem);
+  --header-h: 84px;
+}
+
+/* ---------- Grundlæggende ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  margin: 0;
+  font-family: "Albert Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  overflow-wrap: break-word;
+  color: var(--navy);
+  line-height: 1.12;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+p + p {
+  margin-top: 1.1em;
+}
+
+a {
+  color: var(--navy);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Knapper ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.1rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-sm);
+  border: 0;
+  background: var(--navy);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.btn:hover {
+  background: var(--navy-hover);
+}
+
+.btn-light {
+  background: #fff;
+  color: var(--navy);
+}
+.btn-light:hover {
+  background: #dce5ee;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+}
+
+.brand img {
+  height: 56px;
+  width: auto;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: clamp(1.25rem, 2.6vw, 2.25rem);
+}
+
+.site-nav a {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.site-nav a:hover {
+  color: var(--navy);
+}
+.site-nav a[aria-current="page"] {
+  color: var(--navy);
+}
+.site-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--navy);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* ---------- Sektioner ---------- */
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.section-mist {
+  background: var(--mist);
+}
+
+.section-tight-top {
+  padding-top: 0;
+}
+
+.section-compact {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Billeder i afrundede rammer – aldrig bredere end originalen (--w) */
+.frame {
+  width: 100%;
+  max-width: 640px;
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--mist);
+}
+.frame img {
+  width: 100%;
+  height: auto;
+}
+
+/* To-kolonne layout: billede + tekst */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5.5rem);
+  align-items: center;
+}
+.split > .frame {
+  justify-self: center;
+}
+.split-reverse > .frame {
+  order: 2;
+}
+
+/* Tekst-tunge sektioner: smallere billedkolonne, billedet følger med ved scroll */
+.split-text {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: start;
+}
+.split-text.split-reverse {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+}
+.split-text > .frame {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+}
+
+.split-copy h2 {
+  font-size: clamp(1.75rem, 3.4vw, 2.6rem);
+  margin-bottom: 1.25rem;
+}
+.split-copy p {
+  max-width: 62ch;
+}
+.split-copy .btn {
+  margin-top: 1.75rem;
+}
+
+/* Kun overskrift + knap (forsiden) */
+.split-short h2 {
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  margin-bottom: 0;
+}
+
+/* ---------- Forside: hero ---------- */
+
+.hero {
+  background: var(--navy);
+  color: #fff;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(2.5rem, 5.6vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.hero-lead {
+  margin-top: 1.5rem;
+  max-width: 36ch;
+  font-size: clamp(1.125rem, 1.6vw, 1.3rem);
+  color: var(--on-navy);
+}
+
+.hero .btn {
+  margin-top: 2.25rem;
+}
+
+/* Brobuen: billedet får samme flade bue som logoet */
+.frame-arch {
+  justify-self: end;
+  border-radius: 50% 50% var(--radius) var(--radius) / 34% 34% var(--radius) var(--radius);
+  background: #0c2036;
+}
+
+/* ---------- Forside: tre fremhævninger ---------- */
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.highlight {
+  background: var(--mist);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.75rem 2rem;
+}
+
+.highlight-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+
+.highlight p {
+  line-height: 1.35;
+}
+
+.highlight-lead {
+  display: block;
+  color: var(--text-soft);
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.highlight strong {
+  display: block;
+  color: var(--navy);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ---------- Forside: vision ---------- */
+
+.vision {
+  max-width: 900px;
+  border-left: 6px solid var(--navy);
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+}
+
+.vision h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  margin-bottom: 1.25rem;
+}
+
+.vision p {
+  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+  max-width: 60ch;
+}
+
+.lead-text {
+  max-width: 900px;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--line);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--navy);
+}
+
+/* ---------- Undersider: sidehoved ---------- */
+
+.page-header {
+  background: var(--navy);
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.page-header h1 {
+  color: #fff;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  max-width: 22ch;
+}
+
+/* ---------- Om os ---------- */
+
+.centered {
+  text-align: center;
+}
+.centered h2 {
+  font-size: clamp(1.75rem, 3.4vw, 2.6rem);
+  max-width: 26ch;
+  margin: 0 auto 1.5rem;
+}
+.centered p {
+  max-width: 62ch;
+  margin-inline: auto;
+}
+
+.statement {
+  background: var(--navy);
+  color: #fff;
+  padding-block: var(--section-space);
+}
+
+.statement-lines span {
+  display: block;
+  color: #fff;
+  font-size: clamp(2rem, 5.2vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.statement-tagline {
+  margin-top: 2.5rem;
+  font-size: 1.2rem;
+  color: var(--on-navy);
+}
+
+.statement .btn {
+  margin-top: 1.75rem;
+}
+
+/* ---------- Ydelser ---------- */
+
+.vehicles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.vehicle {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.vehicle-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 14px;
+  background: var(--mist);
+  color: var(--navy);
+}
+.vehicle-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.vehicle h2 {
+  font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.checklist li:first-child {
+  padding-top: 0;
+}
+
+.check {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+}
+.check svg {
+  width: 14px;
+  height: 14px;
+}
+
+.prices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.price h3 {
+  font-size: 1.3rem;
+}
+
+.price-amount {
+  margin-top: 1rem;
+  color: var(--navy);
+  font-size: clamp(2.4rem, 4.5vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.price-unit {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--text-soft);
+}
+
+.price-note {
+  margin-top: 0.9rem;
+  color: var(--text-soft);
+}
+
+.price .btn {
+  margin-top: auto;
+}
+.price-body {
+  margin-bottom: 1.75rem;
+}
+
+/* ---------- Kontakt ---------- */
+
+.intro-text {
+  font-size: clamp(1.15rem, 1.9vw, 1.4rem);
+  line-height: 1.55;
+  max-width: 38ch;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.contact-details {
+  background: var(--mist);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.contact-item + .contact-item {
+  margin-top: 1.5rem;
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.contact-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.contact-form {
+  background: var(--mist);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.field + .field {
+  margin-top: 1.25rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+.field textarea {
+  min-height: 170px;
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--navy);
+}
+
+.contact-form .btn {
+  margin-top: 1.5rem;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+.form-status.is-success {
+  background: #e3f1e8;
+  color: #1c5e3a;
+}
+.form-status.is-error {
+  background: #f8e5e5;
+  color: #8e2323;
+}
+.form-status a {
+  color: inherit;
+}
+
+.hp-field {
+  display: none;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--mist);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: 2.5rem;
+}
+
+.footer-brand img {
+  height: 60px;
+  width: auto;
+}
+
+.footer-brand p {
+  margin-top: 1rem;
+  max-width: 30ch;
+  color: var(--text-soft);
+}
+
+.footer-heading {
+  font-size: 1rem;
+  letter-spacing: 0;
+  margin-bottom: 0.75rem;
+}
+
+.site-footer p,
+.site-footer li {
+  font-size: 1rem;
+}
+
+.footer-links li + li {
+  margin-top: 0.35rem;
+}
+
+.footer-links a,
+.footer-contact a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+/* ---------- Tablet og mobil ---------- */
+
+@media (max-width: 860px) {
+  :root {
+    --header-h: 72px;
+  }
+
+  .brand img {
+    height: 44px;
+  }
+
+  .js .nav-toggle {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-right: -0.5rem;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .nav-toggle-bars,
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-toggle-bars {
+    position: relative;
+  }
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+  .nav-toggle-bars::before {
+    top: -7px;
+  }
+  .nav-toggle-bars::after {
+    top: 7px;
+  }
+  .nav-open .nav-toggle-bars {
+    background: transparent;
+  }
+  .nav-open .nav-toggle-bars::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-open .nav-toggle-bars::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .js .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 24px rgba(17, 43, 69, 0.08);
+  }
+  .js .nav-open .site-nav {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem var(--gutter) 1rem;
+  }
+
+  .site-nav a {
+    padding: 0.9rem 0;
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-nav li:last-child a {
+    border-bottom: 0;
+  }
+  .site-nav a[aria-current="page"]::after {
+    left: -0.9rem;
+    right: auto;
+    top: 0.9rem;
+    bottom: 0.9rem;
+    width: 4px;
+    height: auto;
+  }
+
+  /* Uden JavaScript: menuen vises under logoet */
+  html:not(.js) .header-inner {
+    flex-direction: column;
+    height: auto;
+    padding-block: 1rem;
+    gap: 0.5rem;
+  }
+  html:not(.js) .site-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+  }
+  html:not(.js) .site-nav a {
+    border: 0;
+    font-size: 1rem;
+  }
+
+  .hero-grid,
+  .split,
+  .split-text,
+  .split-text.split-reverse,
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .split-reverse > .frame {
+    order: 0;
+  }
+
+  .split > .frame,
+  .frame-arch {
+    justify-self: start;
+  }
+
+  .split-text > .frame {
+    position: static;
+  }
+
+  .highlights {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .highlight-icon {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    margin: 0.15rem 0 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .vehicles,
+  .prices {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .btn {
+    width: 100%;
+  }
+  .contact-form .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

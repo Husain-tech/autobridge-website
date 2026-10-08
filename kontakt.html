@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt – AutoBridge</title>
+  <meta name="description" content="Fortæl os om din sag, og vi kontakter dig efterfølgende med den videre proces.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preload" href="fonts/albert-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/albert-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#indhold">Gå til indhold</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="AutoBridge – til forsiden" width="428" height="196">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Hovedmenu">
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="om-os.html">Om os</a></li>
+          <li><a href="ydelser.html">Ydelser</a></li>
+          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="indhold">
+
+    <div class="page-header">
+      <div class="container">
+        <h1>Lad os tage kampen med forsikrings&shy;selskabet for dig</h1>
+      </div>
+    </div>
+
+    <section class="section" aria-label="Om henvendelsen">
+      <div class="container split split-reverse">
+          <figure class="frame">
+            <img src="images/forsikringsformular-1400.jpg" srcset="images/forsikringsformular-800.jpg 800w, images/forsikringsformular-1400.jpg 1400w" sizes="(max-width: 860px) calc(100vw - 2.5rem), 640px" width="1400" height="933" alt="To personer i en bil, hvor den ene udfylder en forsikringsformular på et clipboard" loading="lazy">
+          </figure>
+        <div class="split-copy">
+          <p class="intro-text">Vi er mere end blot en rådgiver – Vi er din partner. Vores erfaring er til dit gavn. Fortæl os om din sag, og vi kontakter dig efterfølgende med den videre proces. Du kan kontakte os på nedenstående:</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight-top">
+      <div class="container contact-grid">
+        <div class="contact-details">
+          <h2 class="visually-hidden">Kontaktoplysninger</h2>
+          <p class="contact-item">
+            <span class="contact-label">E-mail</span>
+            <a class="contact-value" href="mailto:Auto.bridge@outlook.com">Auto.bridge@outlook.com</a>
+          </p>
+          <p class="contact-item">
+            <span class="contact-label">LinkedIn</span>
+            <a class="contact-value" href="https://www.linkedin.com/company/autobridge1/" target="_blank" rel="noopener noreferrer">AutoBridge</a>
+          </p>
+        </div>
+
+        <!--
+          Formularen sendes via FormSubmit (formsubmit.co) direkte til Auto.bridge@outlook.com.
+          VIGTIGT: Første gang formularen sendes fra den LIVE hjemmeside, sender FormSubmit en
+          aktiverings-mail til Auto.bridge@outlook.com. Klik "Activate Form" i den mail (tjek også spam).
+          Derefter kommer alle beskeder direkte i indbakken.
+        -->
+        <form class="contact-form" action="https://formsubmit.co/Auto.bridge@outlook.com" method="POST" data-ajax="https://formsubmit.co/ajax/Auto.bridge@outlook.com">
+          <h2 class="visually-hidden">Send en besked</h2>
+          <input type="hidden" name="_subject" value="Ny besked fra hjemmesiden – AutoBridge">
+          <input type="hidden" name="_template" value="table">
+          <div class="field">
+            <label for="navn">Fuldt navn</label>
+            <input id="navn" name="Navn" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="besked">Besked</label>
+            <textarea id="besked" name="Besked" required></textarea>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="honey">Lad dette felt være tomt</label>
+            <input id="honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn" type="submit">Send besked</button>
+          <p class="form-status" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="AutoBridge" width="428" height="196" loading="lazy">
+        <p>Vi styrer forsikringssagen. Du styrer din forretning.</p>
+      </div>
+      <div class="footer-contact">
+        <h2 class="footer-heading">Kontakt</h2>
+        <p>E-mail: <a href="mailto:Auto.bridge@outlook.com">Auto.bridge@outlook.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/company/autobridge1/" target="_blank" rel="noopener noreferrer">AutoBridge</a></p>
+        <p>CVR: 46581415</p>
+      </div>
+      <nav class="footer-nav" aria-label="Sidefod">
+        <h2 class="footer-heading">Sider</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="om-os.html">Om os</a></li>
+          <li><a href="ydelser.html">Ydelser</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 AutoBridge</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
