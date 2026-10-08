@@ -1,0 +1,21 @@
+<IfModule mod_headers.c>
+  # Browseren må kun bruge HTTPS til siden i 1 år (virker først, når HTTPS er aktiveret)
+  Header always set Strict-Transport-Security "max-age=31536000"
+
+  # Hvad siden må indlæse: kun egne filer + kontaktformularen hos FormSubmit
+  Header always set Content-Security-Policy "default-src 'none'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src https://formsubmit.co; form-action https://formsubmit.co; base-uri 'none'; frame-ancestors 'none'"
+
+  # Siden må ikke vises inde i andre hjemmesider (beskytter mod clickjacking)
+  Header always set X-Frame-Options "DENY"
+
+  # Browseren må ikke gætte filtyper
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Del kun domænenavnet, når besøgende klikker videre til andre sider
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Siden bruger ikke kamera, mikrofon, placering eller betaling
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+</IfModule>
